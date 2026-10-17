@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Turn Calculator | Inventory Turnover</title>
+  <meta name="description" content="Free Stock Turn (Inventory Turnover) calculator. Measure how efficiently you sell and replace inventory." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Stock Turn Calculator</h1>
+      <p class="subtitle">Inventory Turnover Ratio — measure how fast you sell &amp; replace stock</p>
+    </header>
+
+    <main>
+      <section class="card calculator">
+        <h2>Calculate Your Stock Turn</h2>
+
+        <div class="form-group">
+          <label for="cogs">Cost of Goods Sold (COGS)</label>
+          <input type="number" id="cogs" placeholder="e.g. 500000" min="0" step="any" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="begin">Beginning Inventory</label>
+            <input type="number" id="begin" placeholder="e.g. 100000" min="0" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="end">Ending Inventory</label>
+            <input type="number" id="end" placeholder="e.g. 80000" min="0" step="any" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="period">Period (days)</label>
+          <select id="period">
+            <option value="365">Year (365 days)</option>
+            <option value="90">Quarter (90 days)</option>
+            <option value="30">Month (30 days)</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+
+        <div class="form-group hidden" id="custom-days-group">
+          <label for="custom-days">Custom days</label>
+          <input type="number" id="custom-days" placeholder="e.g. 180" min="1" />
+        </div>
+
+        <button id="calculate-btn">Calculate Stock Turn</button>
+
+        <div id="result" class="result hidden">
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="label">Stock Turn</span>
+              <span class="value" id="stock-turn">—</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Days Inventory Outstanding</span>
+              <span class="value" id="dio">—</span>
+            </div>
+            <div class="result-item full">
+              <span class="label">Average Inventory</span>
+              <span class="value" id="avg-inv">—</span>
+            </div>
+          </div>
+          <p id="interpretation" class="interpretation"></p>
+        </div>
+      </section>
+
+      <section class="card info">
+        <h2>What is Stock Turn?</h2>
+        <p>
+          <strong>Stock Turn</strong> (also called Inventory Turnover or Stockturn) tells you how many times your business sells and replaces its entire inventory during a given period.
+        </p>
+        <p class="formula">
+          Stock Turn = COGS ÷ Average Inventory
+        </p>
+        <ul>
+          <li><strong>Higher number</strong> → inventory is moving fast (usually good for cash flow)</li>
+          <li><strong>Lower number</strong> → stock is sitting longer (risk of overstock, obsolescence, or slow sales)</li>
+        </ul>
+        <p>
+          Typical targets vary by industry: grocery &amp; fast fashion often aim for 8–12+, fashion retail 4–6, many other retailers 3–8.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made for quick inventory insights · Free to use &amp; host on GitHub Pages</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
